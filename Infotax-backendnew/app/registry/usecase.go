@@ -1,0 +1,29 @@
+package registry
+
+import (
+	"github.com/google/wire"
+	"www.ivtlinfoview.com/infotax/infotax-backend/app/usecase/employee_official_detail"
+	"www.ivtlinfoview.com/infotax/infotax-backend/app/usecase/employee_payroll_detail"
+	"www.ivtlinfoview.com/infotax/infotax-backend/app/usecase/user_login_detail"
+)
+
+var (
+	UserLoginDetailUseCaseSet = wire.NewSet(
+		repositorySet,
+		user_login_detail.NewUseCase,
+	)
+)
+
+var (
+	EmployeePayrollDetailUseCaseSet = wire.NewSet(
+		employeepayrollSet,
+		employee_payroll_detail.NewUseCase,
+	)
+)
+
+var (
+	EmployeeOfficialDetailUseCaseSet = wire.NewSet(
+		employeeOfficialDetailSet,
+		employee_official_detail.NewUseCase,
+	)
+)
